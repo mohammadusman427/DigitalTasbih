@@ -9,16 +9,17 @@ export const styles = StyleSheet.create({
   },
   backgroundImage: {
     position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
+    flex: 1,
+    height: '100%',
+    width: '100%',
+    opacity: 0.2,
     zIndex: -1, // Send background image to the back
   },
   centeredImage: {
     width: 150,  // Adjust the width as needed
     height: 150, // Adjust the height as needed
     resizeMode: 'contain',
+    borderRadius: 50,
   },
 });
 

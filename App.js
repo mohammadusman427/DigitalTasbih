@@ -7,6 +7,7 @@ import ThirdScreen from './src/screens/ThirdScreen';
 import Screen4 from './src/screens/Screen4';
 import HomeScreen from './src/screens/Home';
 import NameScreen from './src/screens/Name';
+import SplashScreen from './src/screens/Splash';
 
 const Stack = createNativeStackNavigator();
 

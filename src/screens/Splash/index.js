@@ -7,7 +7,7 @@ import { styles } from './styles';
 const SplashScreen = ({navigation}) => {
   useEffect(() => {
     setTimeout(() => {
-      navigation.replace('Home');
+      navigation.replace('Name');
     }, 3000);
   }, []);
 
@@ -15,21 +15,19 @@ const SplashScreen = ({navigation}) => {
     <View style={styles.container}>
       {/* Background Image */}
       <Image
+      
         style={styles.backgroundImage}
-        source={{
-          uri: 'https://img.freepik.com/free-vector/realistic-paper-style-abstract-ornamental-background_79603-2435.jpg',
-        }}
-        resizeMode={'cover'}
+        source={require('../imgs/backimage.jpeg')}
+        // resizeMode={'cover'}
       />
 
       {/* Centered Image */}
       <Image
         style={styles.centeredImage}
-        source={{
-          uri: 'https://img.freepik.com/premium-vector/vector-circle-frame-from-tasbih-islam-prayer-beads-isolated-white_9834-3330.jpg',
-        }}
+        source={require('../imgs/tasbihlogo.png')}
         resizeMode={'contain'}
       />
+
     </View>
   );
 };
