@@ -8,26 +8,25 @@ import Screen4 from './src/screens/Screen4';
 import HomeScreen from './src/screens/Home';
 import NameScreen from './src/screens/Name';
 import SplashScreen from './src/screens/Splash';
+import {Provider} from 'react-redux';
+import {PersistGate} from 'redux-persist/integration/react';
+import store, {persistor} from './src/Store/Store';
+import Toast from 'react-native-toast-message';
 
 const Stack = createNativeStackNavigator();
 
 const App = () => {
   return (
-    <NavigationContainer>
-     <Stack.Navigator screenOptions={{headerShown: false}} initialRouteName='Splash'>
-     <Stack.Screen
-          name="Splash"
-          component={SplashScreen}
-        />
-     <Stack.Screen
-          name="Home"
-          component={HomeScreen}
-        />
-     <Stack.Screen
-          name="Name"
-          component={NameScreen}
-        />
-        {/* <Stack.Screen
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <NavigationContainer>
+          <Stack.Navigator
+            screenOptions={{headerShown: false}}
+            initialRouteName="Splash">
+            <Stack.Screen name="Splash" component={SplashScreen} />
+            <Stack.Screen name="Home" component={HomeScreen} />
+            <Stack.Screen name="Name" component={NameScreen} />
+            {/* <Stack.Screen
           name="FirstScreen"
           component={FirstScreen}
           // options={{title: 'Welcome', headerShown: false}}
@@ -35,8 +34,11 @@ const App = () => {
         <Stack.Screen name="SecondScreen" component={SecondScreen} />
         <Stack.Screen name="ThirdScreen" component={ThirdScreen} />
         <Stack.Screen name="Screen4" component={Screen4} /> */}
-      </Stack.Navigator>
-    </NavigationContainer>
+          </Stack.Navigator>
+        </NavigationContainer>
+        <Toast />
+      </PersistGate>
+    </Provider>
   );
 };
 

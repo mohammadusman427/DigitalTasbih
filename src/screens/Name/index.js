@@ -1,69 +1,174 @@
-import React from 'react';
-import { View, Text, Button, Image, TouchableOpacity, TextInput } from 'react-native';
-import { styles } from './styles';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
+import React, {useState} from 'react';
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  TextInput,
+  ScrollView,
+  StyleSheet,
+} from 'react-native';
 
-// The HomeScreen component
-const NameScreen = ({ navigation }) => {
+const NameScreen = ({navigation}) => {
+  const [selectedAvatar, setSelectedAvatar] = useState(null);
+  const [name, setName] = useState('');
+
+  // Avatar data array
+  const avatars = [
+    {id: 1, source: require('../imgs/pics/man1.png')},
+    {id: 2, source: require('../imgs/pics/mehndi.png')},
+    {id: 3, source: require('../imgs/pics/man.png')},
+    {id: 4, source: require('../imgs/pics/girl.png')},
+    {id: 5, source: require('../imgs/pics/women3.png')},
+    {id: 6, source: require('../imgs/pics/women2.png')},
+    {id: 7, source: require('../imgs/pics/woman1.png')},
+    {id: 8, source: require('../imgs/pics/women.png')},
+  ];
+
+  const handleContinue = () => {
+    if (!name.trim()) {
+      alert('Please enter your name');
+      return;
+    }
+    if (!selectedAvatar) {
+      alert('Please select an avatar');
+      return;
+    }
+    navigation.navigate('Home', {name, avatar: selectedAvatar});
+  };
+
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>﷽</Text>
-      <View
-      style={{
-        justifyContent: 'space-between', flexDirection: 'row',}}>
-     <TouchableOpacity>
-      <Image
-      style={styles.images}
-      source={require('../imgs/pics/man1.png')}></Image> </TouchableOpacity>
-     <TouchableOpacity>
-      <Image
-      style={styles.images2}
-      source={require('../imgs/pics/mehndi.png')}></Image> </TouchableOpacity>
-      <TouchableOpacity>
-      <Image
-      style={styles.images3}
-      source={require('../imgs/pics/man.png')}></Image> </TouchableOpacity>
-      <TouchableOpacity>
-      <Image
-      style={styles.images4}
-      source={require('../imgs/pics/girl.png')}></Image> </TouchableOpacity>
+    <ScrollView contentContainerStyle={styles.container}>
+      {/* Header */}
+      <View style={styles.header}>
+        <Text style={styles.title}>﷽</Text>
       </View>
-      <View
-      style= {{
-        justifyContent: 'space-between', flexDirection: 'row',}}>
-      <TouchableOpacity>
-      <Image
-      style={styles.images5}
-      source={require('../imgs/pics/women3.png')}></Image> </TouchableOpacity>
-     <TouchableOpacity>
-      <Image
-      style={styles.images6}
-      source={require('../imgs/pics/women2.png')}></Image> </TouchableOpacity>
-      <TouchableOpacity>
-      <Image
-      style={styles.images7}
-      source={require('../imgs/pics/woman1.png')}></Image> </TouchableOpacity>
-      <TouchableOpacity>
-      <Image
-      style={styles.images8}
-      source={require('../imgs/pics/women.png')}></Image> </TouchableOpacity>
-      
+
+      {/* Name Input */}
+      <View style={styles.inputContainer}>
+        <TextInput
+          style={styles.textInput}
+          placeholder="Your Name"
+          placeholderTextColor="#999"
+          value={name}
+          onChangeText={setName}
+        />
       </View>
-      <TextInput
-      style={styles.textinput}>Your Name</TextInput>
-      
+
+      {/* Avatar Selection */}
       <Text style={styles.subtitle}>Select your avatar</Text>
 
-      <View
-      style={{justifyContent: 'center', flex: 1,}}>
-       <Button
-        title="Home"
-        onPress={() => navigation.navigate('Home')} 
-        
-      />
+      <View style={styles.avatarGrid}>
+        {avatars.map(avatar => (
+          <TouchableOpacity
+            key={avatar.id}
+            style={[
+              styles.avatarContainer,
+              selectedAvatar === avatar.id && styles.selectedAvatarContainer,
+            ]}
+            activeOpacity={0.7}
+            onPress={() => setSelectedAvatar(avatar.id)}>
+            <Image
+              style={styles.avatar}
+              source={avatar.source}
+              resizeMode="contain"
+            />
+          </TouchableOpacity>
+        ))}
       </View>
-    </View>
+
+      {/* Continue Button */}
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity
+          style={[
+            styles.button,
+            !name || (!selectedAvatar && styles.buttonDisabled),
+          ]}
+          onPress={handleContinue}
+          activeOpacity={0.8}
+          disabled={!name || !selectedAvatar}>
+          <Text style={styles.buttonText}>Continue to Home</Text>
+        </TouchableOpacity>
+      </View>
+    </ScrollView>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flexGrow: 1,
+    backgroundColor: '#fff',
+    padding: 20,
+    alignItems: 'center',
+  },
+  header: {
+    marginVertical: 20,
+  },
+  title: {
+    fontSize: 32,
+    textAlign: 'center',
+    color: '#4a6fa5',
+  },
+  inputContainer: {
+    width: '100%',
+    marginVertical: 20,
+  },
+  textInput: {
+    height: 50,
+    borderColor: '#ddd',
+    borderWidth: 1,
+    borderRadius: 10,
+    paddingHorizontal: 15,
+    fontSize: 16,
+    backgroundColor: '#f9f9f9',
+  },
+  subtitle: {
+    fontSize: 18,
+    fontWeight: '600',
+    color: '#333',
+    marginVertical: 15,
+    textAlign: 'center',
+  },
+  avatarGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    marginBottom: 20,
+  },
+  avatarContainer: {
+    margin: 10,
+    borderRadius: 50,
+    borderWidth: 2,
+    borderColor: '#eaeaea',
+    padding: 5,
+  },
+  selectedAvatarContainer: {
+    borderColor: '#4a6fa5',
+    backgroundColor: '#f0f6ff',
+  },
+  avatar: {
+    width: 70,
+    height: 70,
+    borderRadius: 35,
+  },
+  buttonContainer: {
+    width: '100%',
+    marginVertical: 20,
+  },
+  button: {
+    backgroundColor: '#4a6fa5',
+    paddingVertical: 15,
+    borderRadius: 10,
+    alignItems: 'center',
+  },
+  buttonDisabled: {
+    backgroundColor: '#4a6fa510',
+  },
+  buttonText: {
+    color: 'white',
+    fontSize: 16,
+    fontWeight: '600',
+  },
+});
 
 export default NameScreen;
