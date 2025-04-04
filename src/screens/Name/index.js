@@ -8,12 +8,13 @@ import {
   ScrollView,
   StyleSheet,
 } from 'react-native';
+import Toast from 'react-native-toast-message';
+import {useDispatch} from 'react-redux';
+import {updateUser} from '../../Store/userSlice';
 
 const NameScreen = ({navigation}) => {
   const [selectedAvatar, setSelectedAvatar] = useState(null);
   const [name, setName] = useState('');
-
-  // Avatar data array
   const avatars = [
     {id: 1, source: require('../imgs/pics/man1.png')},
     {id: 2, source: require('../imgs/pics/mehndi.png')},
@@ -24,16 +25,27 @@ const NameScreen = ({navigation}) => {
     {id: 7, source: require('../imgs/pics/woman1.png')},
     {id: 8, source: require('../imgs/pics/women.png')},
   ];
-
+  const dispatch = useDispatch();
   const handleContinue = () => {
     if (!name.trim()) {
-      alert('Please enter your name');
+      Toast.show({
+        type: 'error',
+        text1: 'Error',
+        text2: 'Please enter your name',
+        visibilityTime: 3000,
+      });
       return;
     }
     if (!selectedAvatar) {
-      alert('Please select an avatar');
+      Toast.show({
+        type: 'error',
+        text1: 'Error',
+        text2: 'Please select an avatar',
+        visibilityTime: 3000,
+      });
       return;
     }
+    dispatch(updateUser({name, avatar: selectedAvatar}));
     navigation.navigate('Home', {name, avatar: selectedAvatar});
   };
 
@@ -82,7 +94,7 @@ const NameScreen = ({navigation}) => {
         <TouchableOpacity
           style={[
             styles.button,
-            !name || (!selectedAvatar && styles.buttonDisabled),
+            (!name || !selectedAvatar) && styles.buttonDisabled,
           ]}
           onPress={handleContinue}
           activeOpacity={0.8}
