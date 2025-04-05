@@ -26,6 +26,7 @@ const NameScreen = ({navigation}) => {
     {id: 8, source: require('../imgs/pics/women.png')},
   ];
   const dispatch = useDispatch();
+
   const handleContinue = () => {
     if (!name.trim()) {
       Toast.show({
@@ -50,47 +51,52 @@ const NameScreen = ({navigation}) => {
   };
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      {/* Header */}
-      <View style={styles.header}>
-        <Text style={styles.title}>﷽</Text>
-      </View>
+    <View style={{flex: 1, backgroundColor: '#fff', paddingVertical: 50}}>
+      <ScrollView contentContainerStyle={styles.container}>
+        {/* Hadith Header */}
+        <View style={styles.header}>
+          <Text style={styles.hadith}>
+            "The most beloved words to Allah are: SubhanAllah, Alhamdulillah, La
+            ilaha illallah, and Allahu Akbar."{'\n'}
+            <Text style={styles.hadithNumber}>— Sahih Muslim 2137</Text>
+          </Text>
+        </View>
 
-      {/* Name Input */}
-      <View style={styles.inputContainer}>
-        <TextInput
-          style={styles.textInput}
-          placeholder="Your Name"
-          placeholderTextColor="#999"
-          value={name}
-          onChangeText={setName}
-        />
-      </View>
+        {/* Name Input */}
+        <View style={styles.inputContainer}>
+          <TextInput
+            style={styles.textInput}
+            placeholder="Your Good Name"
+            placeholderTextColor="#999"
+            value={name}
+            onChangeText={setName}
+          />
+        </View>
 
-      {/* Avatar Selection */}
-      <Text style={styles.subtitle}>Select your avatar</Text>
+        {/* Avatar Selection */}
+        <Text style={styles.subtitle}>Select your avatar</Text>
+        <View style={styles.avatarGrid}>
+          {avatars.map(avatar => (
+            <TouchableOpacity
+              key={avatar.id}
+              style={[
+                styles.avatarContainer,
+                selectedAvatar === avatar.id && styles.selectedAvatarContainer,
+              ]}
+              activeOpacity={0.7}
+              onPress={() => setSelectedAvatar(avatar.id)}>
+              <Image
+                style={styles.avatar}
+                source={avatar.source}
+                resizeMode="contain"
+              />
+            </TouchableOpacity>
+          ))}
+        </View>
+      </ScrollView>
 
-      <View style={styles.avatarGrid}>
-        {avatars.map(avatar => (
-          <TouchableOpacity
-            key={avatar.id}
-            style={[
-              styles.avatarContainer,
-              selectedAvatar === avatar.id && styles.selectedAvatarContainer,
-            ]}
-            activeOpacity={0.7}
-            onPress={() => setSelectedAvatar(avatar.id)}>
-            <Image
-              style={styles.avatar}
-              source={avatar.source}
-              resizeMode="contain"
-            />
-          </TouchableOpacity>
-        ))}
-      </View>
-
-      {/* Continue Button */}
-      <View style={styles.buttonContainer}>
+      {/* Sticky Continue Button */}
+      <View style={styles.buttonWrapper}>
         <TouchableOpacity
           style={[
             styles.button,
@@ -102,24 +108,29 @@ const NameScreen = ({navigation}) => {
           <Text style={styles.buttonText}>Continue to Home</Text>
         </TouchableOpacity>
       </View>
-    </ScrollView>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flexGrow: 1,
-    backgroundColor: '#fff',
     padding: 20,
     alignItems: 'center',
   },
   header: {
     marginVertical: 20,
   },
-  title: {
-    fontSize: 32,
-    textAlign: 'center',
+  hadith: {
+    fontSize: 16,
     color: '#4a6fa5',
+    textAlign: 'center',
+    lineHeight: 24,
+    fontStyle: 'italic',
+    marginBottom: 10,
+  },
+  hadithNumber: {
+    fontSize: 14,
+    color: '#777',
   },
   inputContainer: {
     width: '100%',
@@ -163,9 +174,11 @@ const styles = StyleSheet.create({
     height: 70,
     borderRadius: 35,
   },
-  buttonContainer: {
-    width: '100%',
-    marginVertical: 20,
+  buttonWrapper: {
+    padding: 20,
+    backgroundColor: '#fff',
+    borderTopWidth: 1,
+    borderColor: '#eee',
   },
   button: {
     backgroundColor: '#4a6fa5',
