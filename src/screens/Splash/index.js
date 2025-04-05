@@ -2,8 +2,10 @@
 import React, {useEffect, useRef} from 'react';
 import {View, Image, Animated, Easing} from 'react-native';
 import {styles} from './styles';
+import {useSelector} from 'react-redux';
 
 const SplashScreen = ({navigation}) => {
+  const {user} = useSelector(state => state.userReducer);
   // Create animated values
   const fadeAnim = useRef(new Animated.Value(0)).current;
   const scaleAnim = useRef(new Animated.Value(0.8)).current;
@@ -28,7 +30,11 @@ const SplashScreen = ({navigation}) => {
 
     // Navigate after 3 seconds
     setTimeout(() => {
-      navigation.replace('Name');
+      if (user?.name) {
+        navigation.navigate('Home');
+      } else {
+        navigation.replace('Name');
+      }
     }, 3000);
   }, []);
 
