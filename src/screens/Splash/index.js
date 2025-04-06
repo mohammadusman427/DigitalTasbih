@@ -2,7 +2,8 @@
 import React, {useEffect, useRef} from 'react';
 import {View, Image, Animated, Easing} from 'react-native';
 import {styles} from './styles';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
+import {updateIsOnBoarding} from '../../Store/userSlice';
 
 const SplashScreen = ({navigation}) => {
   const {user, isOnBoarding} = useSelector(state => state.userReducer);
@@ -11,7 +12,7 @@ const SplashScreen = ({navigation}) => {
   const scaleAnim = useRef(new Animated.Value(0.8)).current;
   const bounceAnim = useRef(new Animated.Value(0)).current;
   const rotateAnim = useRef(new Animated.Value(0)).current;
-
+  const dispatch = useDispatch();
   useEffect(() => {
     // Start the animation when component mounts
     Animated.parallel([
@@ -27,7 +28,7 @@ const SplashScreen = ({navigation}) => {
         useNativeDriver: true,
       }),
     ]).start();
-
+    dispatch(updateIsOnBoarding(false));
     // Navigate after 3 seconds
     setTimeout(() => {
       if (!isOnBoarding) {
