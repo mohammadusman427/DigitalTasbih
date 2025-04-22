@@ -13,6 +13,7 @@ import {PersistGate} from 'redux-persist/integration/react';
 import store, {persistor} from './src/Store/Store';
 import Toast from 'react-native-toast-message';
 import OnBoardingScreen from './src/screens/OnBoarding';
+import MapScreen from './src/screens/Map/MapScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -28,6 +29,7 @@ const App = () => {
             <Stack.Screen name="Home" component={HomeScreen} />
             <Stack.Screen name="Name" component={NameScreen} />
             <Stack.Screen name="OnBoarding" component={OnBoardingScreen} />
+            <Stack.Screen name="Map" component={MapScreen} />
             {/* <Stack.Screen
           name="FirstScreen"
           component={FirstScreen}
