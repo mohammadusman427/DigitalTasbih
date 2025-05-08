@@ -132,9 +132,9 @@ const HomeScreen = ({navigation}) => {
                 <Text style={styles.controlText}>Reset Counter</Text>
               </TouchableOpacity>
               <TouchableOpacity
-                onPress={() => navigation.navigate('Map')}
+                onPress={() => navigation.navigate('Azkar')}
                 style={styles.controlButton}>
-                <Text style={styles.controlText}>Global Map</Text>
+                <Text style={styles.controlText}>Azkar</Text>
               </TouchableOpacity>
               <TouchableOpacity
                 onPress={() => navigation.navigate('Settings')}
