@@ -77,6 +77,11 @@ const HomeScreen = ({navigation}) => {
     setShowControls(false);
   };
 
+  const navigateToScreen = (screenName) => {
+    setShowControls(false);
+    navigation.navigate(screenName);
+  };
+
   const toggleControls = () => {
     setShowControls(prev => !prev);
   };
@@ -84,7 +89,6 @@ const HomeScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
       {/* User Profile Card - Only shown when count is 0 */}
-
       <View style={styles.profileCard}>
         <View style={styles.profileInfo}>
           {user?.avatar && (
@@ -132,12 +136,12 @@ const HomeScreen = ({navigation}) => {
                 <Text style={styles.controlText}>Reset Counter</Text>
               </TouchableOpacity>
               <TouchableOpacity
-                onPress={() => navigation.navigate('Azkar')}
+                onPress={() => navigateToScreen('Azkar')}
                 style={styles.controlButton}>
                 <Text style={styles.controlText}>Azkar</Text>
               </TouchableOpacity>
               <TouchableOpacity
-                onPress={() => navigation.navigate('Settings')}
+                onPress={() => navigateToScreen('Settings')}
                 style={styles.controlButton}>
                 <Text style={styles.controlText}>More Settings</Text>
               </TouchableOpacity>
@@ -227,7 +231,7 @@ const styles = StyleSheet.create({
   },
   counterContainer: {
     flex: 1,
-    backgroundColor: '#0a5c36', // Islamic green color
+    backgroundColor: '#B9D4AA',
     justifyContent: 'center',
     alignItems: 'center',
   },

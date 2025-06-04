@@ -1,0 +1,122 @@
+import { StyleSheet, Platform, Dimensions } from 'react-native';
+
+const { width } = Dimensions.get('window');
+const HORIZONTAL_PADDING = 20;
+
+export const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+    backgroundColor: '#E8F4F8',
+  },
+  container: {
+    flex: 1,
+    backgroundColor: '#E8F4F8',
+    paddingTop: Platform.OS === 'ios' ? 0 : 40,
+  },
+  headerContainer: {
+    width: '100%',
+    alignItems: 'center',
+    paddingTop: Platform.OS === 'ios' ? 20 : 10,
+    paddingBottom: 20,
+    backgroundColor: '#E8F4F8',
+    zIndex: 1,
+  },
+  titleContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#0a5c36',
+    borderWidth: 0,
+    borderRadius: 25,
+    height: 70,
+    width: width - (HORIZONTAL_PADDING * 2),
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+    shadowOpacity: 0.3,
+    shadowRadius: 4.65,
+    elevation: 8,
+    paddingHorizontal: 15,
+  },
+  backButton: {
+    padding: 10,
+    backgroundColor: 'rgba(255, 255, 255, 0.3)',
+    borderRadius: 20,
+    marginRight: 15,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
+    elevation: 4,
+  },
+  backIcon: {
+    height: 25,
+    width: 25,
+    tintColor: 'white',
+  },
+  titleText: {
+    flex: 1,
+    fontSize: 42,
+    color: 'white',
+    fontWeight: '700',
+    textShadowColor: 'rgba(0, 0, 0, 0.2)',
+    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 2,
+    letterSpacing: 2,
+    textAlign: 'center',
+  },
+  scrollContent: {
+    paddingBottom: 40,
+    alignItems: 'center',
+    paddingTop: 10,
+  },
+  cardContainer: {
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    borderWidth: 0,
+    borderRadius: 25,
+    padding: 20,
+    width: width - (HORIZONTAL_PADDING * 2),
+    marginBottom: 25,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+    shadowOpacity: 0.2,
+    shadowRadius: 5,
+    elevation: 6,
+  },
+  cardImage: {
+    height: 180,
+    width: '100%',
+    resizeMode: 'cover',
+    borderRadius: 20,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.15,
+    shadowRadius: 3.84,
+    elevation: 4,
+  },
+  divider: {
+    width: '85%',
+    height: 1.5,
+    marginVertical: 15,
+    opacity: 0.7,
+  },
+  cardText: {
+    fontSize: 15,
+    textAlign: 'center',
+    fontWeight: '500',
+    lineHeight: 22,
+    paddingHorizontal: 5,
+  },
+}); 
