@@ -231,7 +231,7 @@ const styles = StyleSheet.create({
   },
   counterContainer: {
     flex: 1,
-    backgroundColor: '#B9D4AA',
+    backgroundColor: '#2F855A',
     justifyContent: 'center',
     alignItems: 'center',
   },

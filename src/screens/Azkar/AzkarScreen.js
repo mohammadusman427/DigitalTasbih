@@ -91,6 +91,7 @@ const AzkarScreen = ({navigation}) => {
           ))}
         </ScrollView>
       </View>
+      
     </SafeAreaView>
   );
 };
