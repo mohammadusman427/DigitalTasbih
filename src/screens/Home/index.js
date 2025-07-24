@@ -8,14 +8,20 @@ import {
   StyleSheet,
   Image,
 } from 'react-native';
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
+import {checkDailyStreak} from '../../Store/tasbihSlice';
+import TasbihBottomSheet from '../../components/TasbihBottomSheet';
+import TasbihCounter from '../../components/TasbihCounter';
 
 const HomeScreen = ({navigation}) => {
+  const dispatch = useDispatch();
   const {user} = useSelector(state => state.userReducer);
+  const {isCounting, currentTasbih} = useSelector(state => state.tasbihReducer);
   const [count, setCount] = useState(0);
   const [isVibrateEnabled, setIsVibrateEnabled] = useState(true);
   const [lastResetTime, setLastResetTime] = useState(Date.now());
   const [showControls, setShowControls] = useState(false);
+  const [showTasbihSheet, setShowTasbihSheet] = useState(false);
 
   // Settings icon URI
   const settingsIcon = 'https://cdn-icons-png.flaticon.com/512/126/126472.png';
@@ -38,6 +44,11 @@ const HomeScreen = ({navigation}) => {
     return '✨';
   };
 
+  // Check daily streak when app opens
+  useEffect(() => {
+    dispatch(checkDailyStreak());
+  }, [dispatch]);
+
   // Reset counter if it's a new day
   useEffect(() => {
     const checkForNewDay = () => {
@@ -59,6 +70,10 @@ const HomeScreen = ({navigation}) => {
   }, [lastResetTime]);
 
   const handleScreenTap = () => {
+    if (isCounting) {
+      // If currently counting a tasbih, don't increment the general counter
+      return;
+    }
     setCount(prevCount => prevCount + 1);
     if (isVibrateEnabled) {
       Vibration.vibrate(50); // Short vibration feedback
@@ -85,6 +100,15 @@ const HomeScreen = ({navigation}) => {
   const toggleControls = () => {
     setShowControls(prev => !prev);
   };
+
+  // If currently counting a tasbih, show the counter component
+  if (isCounting && currentTasbih) {
+    return (
+      <TasbihCounter onBack={() => {
+        // This will be handled by the TasbihCounter component
+      }} />
+    );
+  }
 
   return (
     <View style={styles.container}>
@@ -136,6 +160,11 @@ const HomeScreen = ({navigation}) => {
                 <Text style={styles.controlText}>Reset Counter</Text>
               </TouchableOpacity>
               <TouchableOpacity
+                onPress={() => setShowTasbihSheet(true)}
+                style={styles.controlButton}>
+                <Text style={styles.controlText}>Start Tasbih</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
                 onPress={() => navigateToScreen('Azkar')}
                 style={styles.controlButton}>
                 <Text style={styles.controlText}>Azkar</Text>
@@ -156,6 +185,15 @@ const HomeScreen = ({navigation}) => {
           )}
         </View>
       </TouchableWithoutFeedback>
+
+      {/* Tasbih Bottom Sheet */}
+      <TasbihBottomSheet
+        visible={showTasbihSheet}
+        onClose={() => setShowTasbihSheet(false)}
+        onStartTasbih={(tasbih) => {
+          setShowTasbihSheet(false);
+        }}
+      />
     </View>
   );
 };

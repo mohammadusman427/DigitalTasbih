@@ -3,17 +3,17 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 55;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* DigitalTasbihTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* DigitalTasbihTests.m */; };
-		0C80B921A6F3F58F76C31292 /* libPods-DigitalTasbih.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-DigitalTasbih.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		7699B88040F8A987B510C191 /* libPods-DigitalTasbih-DigitalTasbihTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-DigitalTasbih-DigitalTasbihTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		C4AC944D9B1F96C1F6C052AC /* libPods-DigitalTasbih.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FB8454F86F66ABE5FDD61D6 /* libPods-DigitalTasbih.a */; };
+		F001E6FF9DCFF33D69E72057 /* libPods-DigitalTasbih-DigitalTasbihTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C71C503F72B57F7D522A0E6D /* libPods-DigitalTasbih-DigitalTasbihTests.a */; };
 		F1A9964973DC8EC588334B13 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */; };
 /* End PBXBuildFile section */
 
@@ -38,22 +38,65 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = DigitalTasbih/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = DigitalTasbih/main.m; sourceTree = "<group>"; };
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = DigitalTasbih/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		19F6CBCC0A4E27FBF8BF4A61 /* libPods-DigitalTasbih-DigitalTasbihTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DigitalTasbih-DigitalTasbihTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3B4392A12AC88292D35C810B /* Pods-DigitalTasbih.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigitalTasbih.debug.xcconfig"; path = "Target Support Files/Pods-DigitalTasbih/Pods-DigitalTasbih.debug.xcconfig"; sourceTree = "<group>"; };
-		5709B34CF0A7D63546082F79 /* Pods-DigitalTasbih.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigitalTasbih.release.xcconfig"; path = "Target Support Files/Pods-DigitalTasbih/Pods-DigitalTasbih.release.xcconfig"; sourceTree = "<group>"; };
-		5B7EB9410499542E8C5724F5 /* Pods-DigitalTasbih-DigitalTasbihTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigitalTasbih-DigitalTasbihTests.debug.xcconfig"; path = "Target Support Files/Pods-DigitalTasbih-DigitalTasbihTests/Pods-DigitalTasbih-DigitalTasbihTests.debug.xcconfig"; sourceTree = "<group>"; };
-		5DCACB8F33CDC322A6C60F78 /* libPods-DigitalTasbih.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DigitalTasbih.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1604579CE987BC95B4380129 /* Pods-DigitalTasbih.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigitalTasbih.debug.xcconfig"; path = "Target Support Files/Pods-DigitalTasbih/Pods-DigitalTasbih.debug.xcconfig"; sourceTree = "<group>"; };
+		3FB8454F86F66ABE5FDD61D6 /* libPods-DigitalTasbih.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DigitalTasbih.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = DigitalTasbih/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		89C6BE57DB24E9ADA2F236DE /* Pods-DigitalTasbih-DigitalTasbihTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigitalTasbih-DigitalTasbihTests.release.xcconfig"; path = "Target Support Files/Pods-DigitalTasbih-DigitalTasbihTests/Pods-DigitalTasbih-DigitalTasbihTests.release.xcconfig"; sourceTree = "<group>"; };
+		8E80E41C118CA39BF4A0767A /* Pods-DigitalTasbih-DigitalTasbihTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigitalTasbih-DigitalTasbihTests.debug.xcconfig"; path = "Target Support Files/Pods-DigitalTasbih-DigitalTasbihTests/Pods-DigitalTasbih-DigitalTasbihTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A31B262401B6A9FF8CF5FE62 /* Pods-DigitalTasbih-DigitalTasbihTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigitalTasbih-DigitalTasbihTests.release.xcconfig"; path = "Target Support Files/Pods-DigitalTasbih-DigitalTasbihTests/Pods-DigitalTasbih-DigitalTasbihTests.release.xcconfig"; sourceTree = "<group>"; };
+		A9A202397A22CDFA7CF796F0 /* Pods-DigitalTasbih.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DigitalTasbih.release.xcconfig"; path = "Target Support Files/Pods-DigitalTasbih/Pods-DigitalTasbih.release.xcconfig"; sourceTree = "<group>"; };
+		C71C503F72B57F7D522A0E6D /* libPods-DigitalTasbih-DigitalTasbihTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DigitalTasbih-DigitalTasbihTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		6B3D0B752E1FE20A00AB0FB0 /* Exceptions for "Fonts" folder in "DigitalTasbih" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				AntDesign.ttf,
+				Entypo.ttf,
+				EvilIcons.ttf,
+				Feather.ttf,
+				FontAwesome.ttf,
+				FontAwesome5_Brands.ttf,
+				FontAwesome5_Regular.ttf,
+				FontAwesome5_Solid.ttf,
+				FontAwesome6_Brands.ttf,
+				FontAwesome6_Regular.ttf,
+				FontAwesome6_Solid.ttf,
+				Fontisto.ttf,
+				Foundation.ttf,
+				Ionicons.ttf,
+				MaterialCommunityIcons.ttf,
+				MaterialIcons.ttf,
+				Octicons.ttf,
+				SimpleLineIcons.ttf,
+				Zocial.ttf,
+			);
+			target = 13B07F861A680F5B00A75B9A /* DigitalTasbih */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		6BD255B22E1FD9B800E2DF83 /* Fonts */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				6B3D0B752E1FE20A00AB0FB0 /* Exceptions for "Fonts" folder in "DigitalTasbih" target */,
+			);
+			explicitFileTypes = {
+			};
+			explicitFolders = (
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		00E356EB1AD99517003FC87E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7699B88040F8A987B510C191 /* libPods-DigitalTasbih-DigitalTasbihTests.a in Frameworks */,
+				F001E6FF9DCFF33D69E72057 /* libPods-DigitalTasbih-DigitalTasbihTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,7 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C80B921A6F3F58F76C31292 /* libPods-DigitalTasbih.a in Frameworks */,
+				C4AC944D9B1F96C1F6C052AC /* libPods-DigitalTasbih.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,6 +131,7 @@
 		13B07FAE1A68108700A75B9A /* DigitalTasbih */ = {
 			isa = PBXGroup;
 			children = (
+				6BD255B22E1FD9B800E2DF83 /* Fonts */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -103,8 +147,8 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				5DCACB8F33CDC322A6C60F78 /* libPods-DigitalTasbih.a */,
-				19F6CBCC0A4E27FBF8BF4A61 /* libPods-DigitalTasbih-DigitalTasbihTests.a */,
+				3FB8454F86F66ABE5FDD61D6 /* libPods-DigitalTasbih.a */,
+				C71C503F72B57F7D522A0E6D /* libPods-DigitalTasbih-DigitalTasbihTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -143,10 +187,10 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				3B4392A12AC88292D35C810B /* Pods-DigitalTasbih.debug.xcconfig */,
-				5709B34CF0A7D63546082F79 /* Pods-DigitalTasbih.release.xcconfig */,
-				5B7EB9410499542E8C5724F5 /* Pods-DigitalTasbih-DigitalTasbihTests.debug.xcconfig */,
-				89C6BE57DB24E9ADA2F236DE /* Pods-DigitalTasbih-DigitalTasbihTests.release.xcconfig */,
+				1604579CE987BC95B4380129 /* Pods-DigitalTasbih.debug.xcconfig */,
+				A9A202397A22CDFA7CF796F0 /* Pods-DigitalTasbih.release.xcconfig */,
+				8E80E41C118CA39BF4A0767A /* Pods-DigitalTasbih-DigitalTasbihTests.debug.xcconfig */,
+				A31B262401B6A9FF8CF5FE62 /* Pods-DigitalTasbih-DigitalTasbihTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -158,12 +202,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "DigitalTasbihTests" */;
 			buildPhases = (
-				A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */,
+				A3ED33B06DAC376FD4BF6C2E /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				C59DA0FBD6956966B86A3779 /* [CP] Embed Pods Frameworks */,
-				F6A41C54EA430FDDC6A6ED99 /* [CP] Copy Pods Resources */,
+				789A0D7BFEFE6AEF5CD05218 /* [CP] Embed Pods Frameworks */,
+				5D1BA527680B28775B294397 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -179,17 +223,20 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "DigitalTasbih" */;
 			buildPhases = (
-				C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */,
+				CF410D7C5368259107734197 /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */,
-				E235C05ADACE081382539298 /* [CP] Copy Pods Resources */,
+				C982B29F5882507312D367E1 /* [CP] Embed Pods Frameworks */,
+				37D61B42711DA81D978ABFDE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				6BD255B22E1FD9B800E2DF83 /* Fonts */,
 			);
 			name = DigitalTasbih;
 			productName = DigitalTasbih;
@@ -269,24 +316,58 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"$REACT_NATIVE_PATH/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"$REACT_NATIVE_PATH/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
 		};
-		00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */ = {
+		37D61B42711DA81D978ABFDE /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DigitalTasbih/Pods-DigitalTasbih-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-DigitalTasbih/Pods-DigitalTasbih-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DigitalTasbih/Pods-DigitalTasbih-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-DigitalTasbih/Pods-DigitalTasbih-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DigitalTasbih/Pods-DigitalTasbih-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DigitalTasbih/Pods-DigitalTasbih-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */ = {
+		5D1BA527680B28775B294397 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DigitalTasbih-DigitalTasbihTests/Pods-DigitalTasbih-DigitalTasbihTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DigitalTasbih-DigitalTasbihTests/Pods-DigitalTasbih-DigitalTasbihTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DigitalTasbih-DigitalTasbihTests/Pods-DigitalTasbih-DigitalTasbihTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		789A0D7BFEFE6AEF5CD05218 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DigitalTasbih-DigitalTasbihTests/Pods-DigitalTasbih-DigitalTasbihTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DigitalTasbih-DigitalTasbihTests/Pods-DigitalTasbih-DigitalTasbihTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DigitalTasbih-DigitalTasbihTests/Pods-DigitalTasbih-DigitalTasbihTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A3ED33B06DAC376FD4BF6C2E /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -308,7 +389,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */ = {
+		C982B29F5882507312D367E1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DigitalTasbih/Pods-DigitalTasbih-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DigitalTasbih/Pods-DigitalTasbih-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DigitalTasbih/Pods-DigitalTasbih-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CF410D7C5368259107734197 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -328,57 +426,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C59DA0FBD6956966B86A3779 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DigitalTasbih-DigitalTasbihTests/Pods-DigitalTasbih-DigitalTasbihTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DigitalTasbih-DigitalTasbihTests/Pods-DigitalTasbih-DigitalTasbihTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DigitalTasbih-DigitalTasbihTests/Pods-DigitalTasbih-DigitalTasbihTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E235C05ADACE081382539298 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DigitalTasbih/Pods-DigitalTasbih-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DigitalTasbih/Pods-DigitalTasbih-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DigitalTasbih/Pods-DigitalTasbih-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F6A41C54EA430FDDC6A6ED99 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DigitalTasbih-DigitalTasbihTests/Pods-DigitalTasbih-DigitalTasbihTests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DigitalTasbih-DigitalTasbihTests/Pods-DigitalTasbih-DigitalTasbihTests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DigitalTasbih-DigitalTasbihTests/Pods-DigitalTasbih-DigitalTasbihTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -414,7 +461,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5B7EB9410499542E8C5724F5 /* Pods-DigitalTasbih-DigitalTasbihTests.debug.xcconfig */;
+			baseConfigurationReference = 8E80E41C118CA39BF4A0767A /* Pods-DigitalTasbih-DigitalTasbihTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -441,7 +488,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 89C6BE57DB24E9ADA2F236DE /* Pods-DigitalTasbih-DigitalTasbihTests.release.xcconfig */;
+			baseConfigurationReference = A31B262401B6A9FF8CF5FE62 /* Pods-DigitalTasbih-DigitalTasbihTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -465,7 +512,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B4392A12AC88292D35C810B /* Pods-DigitalTasbih.debug.xcconfig */;
+			baseConfigurationReference = 1604579CE987BC95B4380129 /* Pods-DigitalTasbih.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -493,7 +540,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5709B34CF0A7D63546082F79 /* Pods-DigitalTasbih.release.xcconfig */;
+			baseConfigurationReference = A9A202397A22CDFA7CF796F0 /* Pods-DigitalTasbih.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

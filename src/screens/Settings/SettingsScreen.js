@@ -8,9 +8,14 @@ import {
   Image,
   ScrollView,
   SafeAreaView,
+  Platform,
+  Dimensions,
 } from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+
+const { width } = Dimensions.get('window');
+const HORIZONTAL_PADDING = 20;
 
 const SettingsScreen = ({navigation}) => {
   const [name, setName] = useState('');
@@ -24,69 +29,73 @@ const SettingsScreen = ({navigation}) => {
 
   return (
     <SafeAreaView style={styles.safeArea}>
-      <View style={styles.header}>
-        <TouchableOpacity 
-          style={styles.backButton}
-          onPress={() => navigation.goBack()}>
-          <Icon name="arrow-back" size={24} color="#000" />
-        </TouchableOpacity>
-        <Text style={styles.headerTitle}>Settings</Text>
-      </View>
+      <View style={styles.container}>
+        <View style={styles.headerContainer}>
+          <View style={styles.titleContainer}>
+            <TouchableOpacity 
+              style={styles.backButton}
+              onPress={() => navigation.goBack()}>
+              <Icon name="arrow-back" size={24} color="white" />
+            </TouchableOpacity>
+            <Text style={styles.titleText}>Settings</Text>
+          </View>
+        </View>
 
-      <ScrollView 
-        style={styles.scrollView}
-        contentContainerStyle={styles.scrollContent}
-        showsVerticalScrollIndicator={false}>
-        
-        <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Profile Settings</Text>
+        <ScrollView 
+          style={styles.scrollView}
+          contentContainerStyle={styles.scrollContent}
+          showsVerticalScrollIndicator={false}>
           
-          <View style={styles.settingItem}>
-            <Text style={styles.settingLabel}>Profile Picture</Text>
-            <TouchableOpacity style={styles.imageContainer}>
-              <Image
-                source={require('../../images/file.png')}
-                style={styles.profileImage}
+          <View style={styles.section}>
+            <Text style={styles.sectionTitle}>Profile Settings</Text>
+            
+            <View style={styles.settingItem}>
+              <Text style={styles.settingLabel}>Profile Picture</Text>
+              <TouchableOpacity style={styles.imageContainer}>
+                <Image
+                  source={require('../../images/file.png')}
+                  style={styles.profileImage}
+                />
+                <Text style={styles.changeImageText}>Change Image</Text>
+              </TouchableOpacity>
+            </View>
+
+            <View style={styles.settingItem}>
+              <Text style={styles.settingLabel}>Name</Text>
+              <TextInput
+                style={styles.input}
+                value={name}
+                onChangeText={setName}
+                placeholder="Enter your name"
+                placeholderTextColor="#999"
               />
-              <Text style={styles.changeImageText}>Change Image</Text>
+            </View>
+          </View>
+
+          <View style={styles.section}>
+            <Text style={styles.sectionTitle}>App Settings</Text>
+            
+            <TouchableOpacity style={styles.settingItem}>
+              <Text style={styles.settingLabel}>Notifications</Text>
+              <Icon name="chevron-right" size={24} color="#666" />
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.settingItem}>
+              <Text style={styles.settingLabel}>Language</Text>
+              <Icon name="chevron-right" size={24} color="#666" />
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.settingItem}>
+              <Text style={styles.settingLabel}>Theme</Text>
+              <Icon name="chevron-right" size={24} color="#666" />
             </TouchableOpacity>
           </View>
 
-          <View style={styles.settingItem}>
-            <Text style={styles.settingLabel}>Name</Text>
-            <TextInput
-              style={styles.input}
-              value={name}
-              onChangeText={setName}
-              placeholder="Enter your name"
-              placeholderTextColor="#999"
-            />
-          </View>
-        </View>
-
-        <View style={styles.section}>
-          <Text style={styles.sectionTitle}>App Settings</Text>
-          
-          <TouchableOpacity style={styles.settingItem}>
-            <Text style={styles.settingLabel}>Notifications</Text>
-            <Icon name="chevron-right" size={24} color="#666" />
+          <TouchableOpacity style={styles.saveButton} onPress={handleSaveSettings}>
+            <Text style={styles.saveButtonText}>Save Changes</Text>
           </TouchableOpacity>
-
-          <TouchableOpacity style={styles.settingItem}>
-            <Text style={styles.settingLabel}>Language</Text>
-            <Icon name="chevron-right" size={24} color="#666" />
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.settingItem}>
-            <Text style={styles.settingLabel}>Theme</Text>
-            <Icon name="chevron-right" size={24} color="#666" />
-          </TouchableOpacity>
-        </View>
-
-        <TouchableOpacity style={styles.saveButton} onPress={handleSaveSettings}>
-          <Text style={styles.saveButtonText}>Save Changes</Text>
-        </TouchableOpacity>
-      </ScrollView>
+        </ScrollView>
+      </View>
     </SafeAreaView>
   );
 };
@@ -94,28 +103,63 @@ const SettingsScreen = ({navigation}) => {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: '#f8f8f8',
+    backgroundColor: '#E8F4F8',
   },
-  header: {
+  container: {
+    flex: 1,
+    backgroundColor: '#E8F4F8',
+    paddingTop: Platform.OS === 'ios' ? 0 : 40,
+  },
+  headerContainer: {
+    width: '100%',
+    alignItems: 'center',
+    paddingTop: Platform.OS === 'ios' ? 20 : 10,
+    paddingBottom: 20,
+    backgroundColor: '#E8F4F8',
+    zIndex: 1,
+  },
+  titleContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-    backgroundColor: '#fff',
-    elevation: 2,
+    backgroundColor: '#0a5c36',
+    borderWidth: 0,
+    borderRadius: 25,
+    height: 70,
+    width: width - (HORIZONTAL_PADDING * 2),
     shadowColor: '#000',
-    shadowOffset: {width: 0, height: 2},
-    shadowOpacity: 0.1,
-    shadowRadius: 2,
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+    shadowOpacity: 0.3,
+    shadowRadius: 4.65,
+    elevation: 8,
+    paddingHorizontal: 15,
   },
   backButton: {
-    padding: 8,
+    padding: 10,
+    backgroundColor: 'rgba(255, 255, 255, 0.3)',
+    borderRadius: 20,
+    marginRight: 15,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
+    elevation: 4,
   },
-  headerTitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    marginLeft: 8,
-    color: '#333',
+  titleText: {
+    flex: 1,
+    fontSize: 42,
+    color: 'white',
+    fontWeight: '700',
+    textShadowColor: 'rgba(0, 0, 0, 0.2)',
+    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 2,
+    letterSpacing: 2,
+    textAlign: 'center',
   },
   scrollView: {
     flex: 1,
