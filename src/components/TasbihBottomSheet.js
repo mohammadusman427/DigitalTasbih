@@ -1,28 +1,25 @@
-import React, { useState, useCallback, useMemo, useRef } from 'react';
+import React, { useState } from 'react';
 import {
   View,
   Text,
   TouchableOpacity,
   StyleSheet,
+  Modal,
   FlatList,
   TextInput,
   Alert,
+  Dimensions,
 } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { addTasbih, deleteTasbih, startTasbih } from '../Store/tasbihSlice';
-import BottomSheet, { BottomSheetView, BottomSheetBackdrop } from '@gorhom/bottom-sheet';
+
+const { height } = Dimensions.get('window');
 
 const TasbihBottomSheet = ({ visible, onClose, onStartTasbih }) => {
   const dispatch = useDispatch();
   const { tasbihs } = useSelector(state => state.tasbihReducer);
   const [showAddModal, setShowAddModal] = useState(false);
   const [newTasbihName, setNewTasbihName] = useState('');
-  
-  // Bottom sheet ref
-  const bottomSheetRef = useRef(null);
-
-  // Variables
-  const snapPoints = useMemo(() => ['25%', '50%', '90%'], []);
 
   const handleStartTasbih = (tasbih) => {
     dispatch(startTasbih(tasbih));
@@ -57,17 +54,6 @@ const TasbihBottomSheet = ({ visible, onClose, onStartTasbih }) => {
     );
   };
 
-  const renderBackdrop = useCallback(
-    props => (
-      <BottomSheetBackdrop
-        {...props}
-        disappearsOnIndex={0}
-        appearsOnIndex={1}
-      />
-    ),
-    []
-  );
-
   const renderTasbihItem = ({ item }) => (
     <View style={styles.tasbihItem}>
       <View style={styles.tasbihInfo}>
@@ -99,100 +85,101 @@ const TasbihBottomSheet = ({ visible, onClose, onStartTasbih }) => {
     </View>
   );
 
-  // Handle sheet changes
-  const handleSheetChanges = useCallback((index) => {
-    if (index === -1) {
-      onClose();
-    }
-  }, [onClose]);
-
-  // Handle close
-  const handleClose = useCallback(() => {
-    bottomSheetRef.current?.close();
-  }, []);
-
   return (
-    <BottomSheet
-      ref={bottomSheetRef}
-      index={visible ? 1 : -1}
-      snapPoints={snapPoints}
-      onChange={handleSheetChanges}
-      enablePanDownToClose={true}
-      backdropComponent={renderBackdrop}
-      backgroundStyle={styles.bottomSheetBackground}
-      handleIndicatorStyle={styles.indicator}
-    >
-      <BottomSheetView style={styles.contentContainer}>
-        {/* Header */}
-        <View style={styles.header}>
-          <Text style={styles.headerTitle}>Select Tasbih</Text>
-          <TouchableOpacity style={styles.closeButton} onPress={handleClose}>
-            <Text style={styles.closeButtonText}>✕</Text>
-          </TouchableOpacity>
-        </View>
-
-        {/* Add Button */}
-        <TouchableOpacity
-          style={styles.addButton}
-          onPress={() => setShowAddModal(true)}>
-          <Text style={styles.addButtonText}>+ Add New Tasbih</Text>
-        </TouchableOpacity>
-
-        {/* Tasbih List */}
-        <FlatList
-          data={tasbihs}
-          renderItem={renderTasbihItem}
-          keyExtractor={item => item.id}
-          style={styles.list}
-          showsVerticalScrollIndicator={false}
+    <Modal
+      visible={visible}
+      animationType="slide"
+      transparent={true}
+      onRequestClose={onClose}>
+      <View style={styles.overlay}>
+        <TouchableOpacity 
+          style={styles.backdrop} 
+          onPress={onClose} 
+          activeOpacity={1} 
         />
+        <View style={styles.bottomSheet}>
+          {/* Header */}
+          <View style={styles.header}>
+            <Text style={styles.headerTitle}>Select Tasbih</Text>
+            <TouchableOpacity style={styles.closeButton} onPress={onClose}>
+              <Text style={styles.closeButtonText}>✕</Text>
+            </TouchableOpacity>
+          </View>
 
-        {/* Add Tasbih Modal */}
-        {showAddModal && (
-          <View style={styles.modalOverlay}>
-            <View style={styles.modalContent}>
-              <Text style={styles.modalTitle}>Add New Tasbih</Text>
-              <TextInput
-                style={styles.input}
-                placeholder="Enter tasbih name..."
-                value={newTasbihName}
-                onChangeText={setNewTasbihName}
-                autoFocus={true}
-              />
-              <View style={styles.modalButtons}>
-                <TouchableOpacity
-                  style={styles.cancelButton}
-                  onPress={() => {
-                    setShowAddModal(false);
-                    setNewTasbihName('');
-                  }}>
-                  <Text style={styles.cancelButtonText}>Cancel</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  style={styles.confirmButton}
-                  onPress={handleAddTasbih}>
-                  <Text style={styles.confirmButtonText}>Add</Text>
-                </TouchableOpacity>
+          {/* Add Button */}
+          <TouchableOpacity
+            style={styles.addButton}
+            onPress={() => setShowAddModal(true)}>
+            <Text style={styles.addButtonText}>+ Add New Tasbih</Text>
+          </TouchableOpacity>
+
+          {/* Tasbih List */}
+          <FlatList
+            data={tasbihs}
+            renderItem={renderTasbihItem}
+            keyExtractor={item => item.id}
+            style={styles.list}
+            showsVerticalScrollIndicator={false}
+          />
+
+          {/* Add Tasbih Modal */}
+          <Modal
+            visible={showAddModal}
+            animationType="fade"
+            transparent={true}
+            onRequestClose={() => setShowAddModal(false)}>
+            <View style={styles.modalOverlay}>
+              <View style={styles.modalContent}>
+                <Text style={styles.modalTitle}>Add New Tasbih</Text>
+                <TextInput
+                  style={styles.input}
+                  placeholder="Enter tasbih name..."
+                  value={newTasbihName}
+                  onChangeText={setNewTasbihName}
+                  autoFocus={true}
+                />
+                <View style={styles.modalButtons}>
+                  <TouchableOpacity
+                    style={styles.cancelButton}
+                    onPress={() => {
+                      setShowAddModal(false);
+                      setNewTasbihName('');
+                    }}>
+                    <Text style={styles.cancelButtonText}>Cancel</Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    style={styles.confirmButton}
+                    onPress={handleAddTasbih}>
+                    <Text style={styles.confirmButtonText}>Add</Text>
+                  </TouchableOpacity>
+                </View>
               </View>
             </View>
-          </View>
-        )}
-      </BottomSheetView>
-    </BottomSheet>
+          </Modal>
+        </View>
+      </View>
+    </Modal>
   );
 };
 
 const styles = StyleSheet.create({
-  bottomSheetBackground: {
-    backgroundColor: 'white',
-  },
-  indicator: {
-    backgroundColor: '#ccc',
-    width: 40,
-    height: 4,
-  },
-  contentContainer: {
+  overlay: {
     flex: 1,
+    justifyContent: 'flex-end',
+  },
+  backdrop: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  },
+  bottomSheet: {
+    backgroundColor: 'white',
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    maxHeight: height * 0.8,
     paddingBottom: 20,
   },
   header: {
@@ -290,15 +277,10 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   modalOverlay: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
+    flex: 1,
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
     justifyContent: 'center',
     alignItems: 'center',
-    zIndex: 1000,
   },
   modalContent: {
     backgroundColor: 'white',
